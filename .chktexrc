@@ -1,0 +1,6 @@
+DashExcpt = {
+    Hartree--Fock
+    ring--C$_{70}$
+}
+CmdLine = {
+}
