@@ -1,6 +1,8 @@
 DashExcpt = {
     Hartree--Fock
     ring--C$_{70}$
+    host--guest
+    Host--guest
 }
 CmdLine = {
 }
