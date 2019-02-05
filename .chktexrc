@@ -3,6 +3,9 @@ DashExcpt = {
     ring--C$_{70}$
     host--guest
     Host--guest
+    buckyball--catcher
+    buckyball--ring
+    Xe--Xe
 }
 CmdLine = {
 }
