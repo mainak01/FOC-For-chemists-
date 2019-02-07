@@ -79,23 +79,40 @@ Our work here elaborates on the physical interactions that are indicated in the 
 
 %The experimental examples of Secchi~\textit{et al.} and Wagner~\textit{et al.} are confined systems. Confinement in general is prevalent, \textit{e.g.}\ a molecule adsorbed on a surface is quasi-3D confined; a molecule between two sheets is quasi-2D confined; and a molecule in a narrow nanotube is quasi-1D confined. Dispersion interactions play a key role in confined systems, but are challenging to compute with accurate quantum mechanical methods due to the typical size and complexity of confined systems. The complexity of confined systems, in particular, calls for a complete description of Coulombic interactions between fluctuating electron densities, to fully account for all dynamic correlation. However, this is practically an insurmountable task for anything beyond a few atoms. One effective method of predicting larger systems is to use a perturbative approach to go beyond the dipole-coupled approximation. As we describe hereafter, by accounting for higher multipoles in a perturbative approach, we better approximate the quantum behavior of fluctuating charge densities.
 
-%stand-alone section to explain theory and perspectives on dispersion, splitting intro
-%TO-DO for Jan
 \section*{Method}
 
 \begin{figure}[h]
 \includegraphics[scale=0.45]{Plots/Schematic_new.pdf}
 \caption{\textbf{Schematic representation of Coulomb singles correction:} (a) Green arrows represent dipole coupling between electronic fragments. First-order perturbation theory (PT) captures Coulomb singles interaction energy, $E_{\rm CS}$, depicted by field lines. (b) First-order correction vanishes in 3D isotropic vacuum because of symmetry, \textit{i.e.} $E_{\rm CS} = 0$. (c) Under rotational symmetry-breaking confinement, electric field-lines between electronic fragments deform, which leads to $E_{CS} \neq 0$. (d) Further inclusion of higher-order PT terms leads to full Coulomb-coupled vdW interaction.}\label{fig:schematic}
 \end{figure}
-% conceptual introduction into the physics of CS
-%Coulomb interactions between spontaneously fluctuating electron densities give rise to well-known vdW interactions.
 
-While charge density fluctuations are quantum-mechanical, they can be visualized as instantaneous deformations of electron density. In 3D isotropic vacuum, the longest-range interactions between these electronic fluctuations are dipolar, and these give rise to the well-known attractive London dispersion interaction. This observation led to the widespread assumption that the long-range interaction between two polarizable electron densities, without any permanent moments, is always attractive and mediated by dipole coupling. We can, however, extend this description by perturbatively adding the additional terms of the multipole expansion of the Coulomb interaction to the dipole-coupled states~\cite{sadhukhan_prl_2017}. Taking two electron densities $\rho_A$ and $\rho_B$ (Fig.~\ref{fig:schematic}a) and applying dipole coupling between them, the van der Waals (vdW) interaction energy ($E_\text{vdW}$) is described only by dipole-coupled theory. The many-body dispersion (MBD) method that yields the MBD energy ($E_{\rm MBD}$), as shown at the top of Fig.~\ref{fig:schematic}a, is one such method. As a result of the coupling, the electron densities, $\rho_A$ and $\rho_B$, change by $\delta \rho_A$ and $\delta \rho_B$, respectively. The first order beyond-dipole perturbation describes the Coulomb interaction between $\delta \rho_A$ and $\delta \rho_B$ (Fig.~\ref{fig:schematic}). Formal comparison to post Hartree--Fock electronic structure theories indicate that this interaction resembles that between singly excited fragments (\textit{i.e.} the dipolar states in Fig.~\ref{fig:schematic}). This resemblance prompted us to refer to this interaction energy as the \textit{Coulomb singles} ($E_{\rm CS}$) interaction energy. For a system in 3D isotropic vacuum (unconfined), $E_{\rm CS}$ vanishes in the long-range limit due to the symmetry between electric field-lines (schematically shown in Fig.~\ref{fig:schematic}b). However, under confinement which breaks the isotropic symmetry, $E_{\rm CS}$ is non-zero (see Fig.~\ref{fig:schematic}c) and contributes significantly to $E_\text{vdW}$. %Experimental and theoretical estimation of vdW interaction energies for such large confined systems has been a long-standing challenge and has only become feasible in recent years. With recently available reference interaction energies, we are closer to defining the missing components of vdW interactions in our theoretical models.  
-Higher-order Coulomb corrections to dipole-coupled theory, can eventually bring the theoretical description even closer to full Coulomb-coupling between fluctuating electron densities (illustrated in Fig.~\ref{fig:schematic}d).
+VdW dispersion interactions originate from the long-range electron correlation energy.
+Therefore, they depends only on the fluctuations in the electron charge density, more specifically only on correlations in those fluctuations that occur on length scales exceeding intra-atomic distances.
+Taking advantage of this fact, the many-body dispersion (MBD) method models vdW interactions by approximating a given electronic system (its charge fluctuations) with a set of effective charged harmonic (Drude) oscillators, with each oscillator corresponding to a single atom, mimicking its long-range electrodynamic response, and mutually interacting with other oscillators via the dipole potential, $T_\mathbf{pp}$,
+\begin{equation}
+\hat H_\text{MBD}=\hat T+\hat U+\hat T_\mathbf{pp}
+\end{equation}
+where $\hat T$ and $\hat U$ are the kinetic energy operator and harmonic potential operator, respectively.
+This Hamiltonian lends itself to a closed-form solution in the form of coupled oscillator modes, and the vdW energy is obtained as the difference in the ground-state energy between this interacting system and its noninteracting variant ($\hat T_\mathbf{pp}=0$), with the corresponding ground states $|\Psi_1\rangle$ and $|\Psi_0\rangle$, respectively,
+\begin{equation}
+E_\text{MBD}=E_1-E_0=\sum_k\frac{\omega_{1,k}}2-\sum_k\frac{\omega_{0,k}}2
+\end{equation}
+where $\omega_k$ is the energy of the $k$-th coupled oscillator mode.
 
- 
-Coulomb singles can comprise an appreciable part of long-range interactions in physical systems. We incorporate this interaction in a practical, fully atomistic MBD approach and model a range of materials, from unconfined small molecular dimers to large supramolecular confined systems. In doing so, we demonstrate that there may be an intricate balance between attractive and repulsive long-range terms when Coulomb singles are included; such that under confinement long-range repulsion can become dominant at length scales beyond several \r{a}ngstr\"{o}ms of intermolecular separation. 
-Furthermore, we show that the Coulomb singles contribution can be included in predictions of all systems, regardless of confinement, as it is an inherent component of physical interactions. 
+In this work, we improve upon the dipole approximation in $\hat H_\text{MBD}$ by deriving and evaluating the Coulomb correction, $\hat V-\hat T_\mathbf{pp}$, to the MBD energy in the first order of the perturbation theory,
+\begin{equation}
+E_\text{MBD}^{(1)}=\langle\Psi_1|\hat V-\hat T_\mathbf{pp}|\Psi_1\rangle-\langle\Psi_0|\hat V-\hat T_\mathbf{pp}|\Psi_0\rangle
+\end{equation}
+Following the division of the electronic Coulomb energy into its classical and correlation parts in electronic structure theory, we likewise divide the Coulomb energy of the correlated ground-state wave function of the Drude oscillators into its classical part, $J[\rho]$, and the correlation part, $E_\text{corr}[\Psi]$.
+Since $\langle\Psi_0|\hat T_\mathbf{pp}|\Psi_0\rangle=0$ and $E_\text{corr}[\Psi_0]=0$, the first-order Coulomb correction can be rewritten as
+\begin{equation}
+E_\text{MBD}^{(1)}=\bigl(J[\rho_1]-J[\rho_0]\bigr)+\bigl(E_\text{corr}[\Psi_1]-\langle\Psi_1|\hat T_\mathbf{pp}|\Psi_1\rangle\bigr)
+\end{equation}
+Here, the first term is the change in the electrostatic energy of the oscillators caused by the polarization of the system induced by vdW dispersion interactions, and the second term is a Coulomb correction to the dipole correlation energy.
+To first order in $\Delta\rho=\rho_1-\rho_0$, the first term can be expressed as $J[\rho_0,\Delta\rho]$---the electrostatic interaction energy of the noninteracting density of the oscillators with the density polarization induced by the dispersion.
+
+We note that in the presence of a polarizable environment, the first-order correction to the MBD energy between two bodies can decay asymptotically slower than the zeroth-order MBD energy. The dipole correlation in the MBD ground-state wave function between a \emph{finite} body and its environment induces permanent quadrupole moments on the oscillators, whose electrostatic interaction then decays as $R^{-5}$.
+In contrast, the MBD interaction energy between the two bodies in such a system (including the environment) decays asymptotically as $R^{-6}$.
 
 \subsection*{Coulomb corrections for small molecular dimers}
 We begin by applying the first-order perturbation term to the S66 molecular data set of small, unconfined and non-covalently interacting dimers~\cite{s66X8_database}. A consistent approach is developed here to incorporate Coulomb singles in the MBD approach, which we refer to as MBD+CS, and is constructed by analyzing the first-order perturbation theory (PT) correction for small molecular dimers.
